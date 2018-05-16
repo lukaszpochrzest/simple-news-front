@@ -1,0 +1,20 @@
+<div>
+    <button (click)="getNews('pl', 'technology')">Browse news!</button>
+    <p *ngIf="loading">loading news...</p>
+
+    <ul>
+        <li *ngFor="let news of articles">
+            <p *ngIf="news.title"><b>{{news.title}}</b></p>
+            <p *ngIf="news.author"><b>Author: {{news.author}}</b></p>
+            <p *ngIf="news.description">{{news.description}}</p>
+            <p>
+                <i>
+                    <span *ngIf="news.date">{{news.date}} </span>
+                    <span *ngIf="news.sourceName">source: {{news.sourceName}} </span>
+                    <span *ngIf="news.articleUrl"><a href="{{news.articleUrl}}">link</a></span>
+                </i>
+            </p>
+            <p *ngIf="news.imageUrl"><img [src]="news.imageUrl"/></p>
+        </li>
+    </ul>
+</div>
